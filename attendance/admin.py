@@ -1,0 +1,14 @@
+from django.contrib import admin
+from .models import Student, Attendance
+
+
+@admin.register(Student)
+class StudentAdmin(admin.ModelAdmin):
+    list_display = ('roll_no', 'name', 'course', 'email')
+    search_fields = ('roll_no', 'name')
+
+
+@admin.register(Attendance)
+class AttendanceAdmin(admin.ModelAdmin):
+    list_display = ('student', 'date', 'status')
+    list_filter = ('date', 'status')
